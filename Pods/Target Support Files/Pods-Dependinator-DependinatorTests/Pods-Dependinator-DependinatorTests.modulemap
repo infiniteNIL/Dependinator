@@ -1,0 +1,6 @@
+framework module Pods_Dependinator_DependinatorTests {
+  umbrella header "Pods-Dependinator-DependinatorTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
