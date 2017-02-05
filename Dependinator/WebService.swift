@@ -15,10 +15,6 @@ enum Result<T> {
 
 class WebService {
 
-    static let instance = WebService()
-
-    private init() {}
-
     func getDate(completionHandler: @escaping (Result<Date>) -> Void) {
         let queue = DispatchQueue.global(qos: .default)
         queue.async {

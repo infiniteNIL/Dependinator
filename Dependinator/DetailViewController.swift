@@ -13,6 +13,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+    private let webService = WebService()
+
     private(set) var detailItem: Date? {
         didSet {
             configureView()
@@ -27,7 +29,7 @@ class DetailViewController: UIViewController {
     private func fetchResource() {
         activityIndicator.startAnimating()
 
-        WebService.instance.getDate { result in
+        webService.getDate { result in
             self.activityIndicator.stopAnimating()
 
             switch result {
