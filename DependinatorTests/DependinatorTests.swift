@@ -15,11 +15,12 @@ class DependinatorSpecs: QuickSpec {
 
     override func spec() {
         var sut: DetailViewController!
+        let webServiceMock = WebServiceMock()
         
         beforeEach {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             sut = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-            UIApplication.shared.keyWindow!.rootViewController = sut
+            sut.webService = webServiceMock
             XCTAssertNotNil(sut.view)  // load the view
         }
 
@@ -32,38 +33,41 @@ class DependinatorSpecs: QuickSpec {
                 expect(sut.detailDescriptionLabel) != nil //.toNot(beNil())
             }
 
-            it("has no data") {
-                expect(sut.detailItem).to(beNil())
+            it("should load the resource") {
+                expect(webServiceMock.getDateCalled) == true
             }
         }
 
         describe("activity indicator") {
-            beforeEach { sut.viewDidLoad() }
-
-            it("shows activity on load") {
-                expect(sut.activityIndicator.isAnimating) == true //.to(equal(true))
-            }
-
             it("stops the activityIndicator") {
-                expect(sut.activityIndicator.isAnimating).toEventually(beFalse(), timeout: 5.5)
+                expect(sut.activityIndicator.isAnimating).toEventually(beFalse())
             }
         }
 
         describe("loading") {
-            beforeEach { sut.viewDidLoad() }
-
             it("loads the data") {
-                expect(sut.detailItem).toEventuallyNot(beNil(), timeout: 5.5)
+                expect(sut.detailItem).toEventuallyNot(beNil())
             }
 
             it ("shows the detail label") {
-                expect(sut.detailDescriptionLabel.isHidden).toEventuallyNot(beTrue(), timeout: 5.5)
+                expect(sut.detailDescriptionLabel.isHidden).toEventuallyNot(beTrue())
             }
 
             it("sets the label") {
-                expect(sut.detailDescriptionLabel.text).toEventuallyNot(beNil(), timeout: 5.5)
+                expect(sut.detailDescriptionLabel.text).toEventuallyNot(beNil())
             }
         }
+    }
+
+}
+
+class WebServiceMock: WebService {
+
+    private(set) var getDateCalled = false
+
+    override func getDate(completionHandler: @escaping (Result<Date>) -> Void) {
+        getDateCalled = true
+        completionHandler(.success(Date()))
     }
 
 }
