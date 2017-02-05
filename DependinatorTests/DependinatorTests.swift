@@ -21,10 +21,11 @@ class DependinatorSpecs: QuickSpec {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             sut = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
             sut.webService = webServiceMock
-            XCTAssertNotNil(sut.view)  // load the view
         }
 
         describe("view setup") {
+            beforeEach { _ = sut.view }
+
             it("has an activityIndicator") {
                 expect(sut.activityIndicator) != nil //.toNot(beNil())
             }
@@ -39,13 +40,18 @@ class DependinatorSpecs: QuickSpec {
         }
 
         describe("activity indicator") {
+            beforeEach { _ = sut.view }
+
             it("stops the activityIndicator") {
                 expect(sut.activityIndicator.isAnimating).toEventually(beFalse())
             }
         }
 
         describe("loading") {
-            beforeEach { webServiceMock.getDateResult = .success(self.makeTestDate()) }
+            beforeEach {
+                _ = sut.view
+                webServiceMock.getDateResult = .success(self.makeTestDate())
+            }
 
             it("loads the data") {
                 expect(sut.detailItem).toEventuallyNot(beNil())
