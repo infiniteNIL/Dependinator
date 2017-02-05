@@ -37,7 +37,8 @@ class DetailViewController: UIViewController {
                     self.detailItem = date
 
                 case .failure(let error):
-                    print(error)
+                    self.detailDescriptionLabel.isHidden = false
+                    self.detailDescriptionLabel.text = (error as! String)
             }
         }
     }
