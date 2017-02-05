@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    private let webService = WebService()
+    var webService = WebService()
 
     private(set) var detailItem: Date? {
         didSet {
