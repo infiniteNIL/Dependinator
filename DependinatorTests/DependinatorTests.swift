@@ -49,8 +49,8 @@ class DependinatorSpecs: QuickSpec {
 
         describe("loading") {
             beforeEach {
-                _ = sut.view
                 webServiceMock.getDateResult = .success(self.makeTestDate())
+                _ = sut.view
             }
 
             it("loads the data") {
