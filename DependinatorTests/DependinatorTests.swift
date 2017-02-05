@@ -19,7 +19,6 @@ class DependinatorSpecs: QuickSpec {
         beforeEach {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             sut = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-            UIApplication.shared.keyWindow!.rootViewController = sut
             XCTAssertNotNil(sut.view)  // load the view
         }
 
