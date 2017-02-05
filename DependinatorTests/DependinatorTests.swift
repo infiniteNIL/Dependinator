@@ -77,12 +77,16 @@ class DependinatorSpecs: QuickSpec {
                     _ = sut.view
                 }
 
-                it("should keep the detail label hidden") {
-                    expect(sut.detailDescriptionLabel.isHidden) == true
+                it("should show detail label") {
+                    expect(sut.detailDescriptionLabel.isHidden).toEventuallyNot(beTrue())
                 }
 
                 it("should stop the activity indicator") {
                     expect(sut.activityIndicator.isAnimating) == false
+                }
+
+                it("should show the error message") {
+                    expect(sut.detailDescriptionLabel.text).toEventually(equal("Unable to load date"))
                 }
             }
         }
