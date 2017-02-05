@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DCC3A15B1E458ED90012733A /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC3A15A1E458ED90012733A /* WebService.swift */; };
+		DCC3A15D1E46B9250012733A /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC3A15C1E46B9250012733A /* Error.swift */; };
 		DCD5053D1E40307100AE6FBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD5053C1E40307100AE6FBE /* AppDelegate.swift */; };
 		DCD5053F1E40307100AE6FBE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD5053E1E40307100AE6FBE /* MasterViewController.swift */; };
 		DCD505411E40307100AE6FBE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD505401E40307100AE6FBE /* DetailViewController.swift */; };
@@ -34,6 +35,7 @@
 		C05AB6A05B26FE25F883BAE1 /* Pods-Dependinator-DependinatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dependinator-DependinatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dependinator-DependinatorTests/Pods-Dependinator-DependinatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		DBD6456A61C0F77FAAC47F37 /* Pods-Dependinator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dependinator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dependinator/Pods-Dependinator.debug.xcconfig"; sourceTree = "<group>"; };
 		DCC3A15A1E458ED90012733A /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		DCC3A15C1E46B9250012733A /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		DCD505391E40307100AE6FBE /* Dependinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dependinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD5053C1E40307100AE6FBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCD5053E1E40307100AE6FBE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				DCD5053C1E40307100AE6FBE /* AppDelegate.swift */,
 				DCD5053E1E40307100AE6FBE /* MasterViewController.swift */,
 				DCD505401E40307100AE6FBE /* DetailViewController.swift */,
+				DCC3A15C1E46B9250012733A /* Error.swift */,
 				DCC3A15A1E458ED90012733A /* WebService.swift */,
 				DCD505421E40307100AE6FBE /* Main.storyboard */,
 				DCD505451E40307100AE6FBE /* Assets.xcassets */,
@@ -337,6 +340,7 @@
 				DCD505411E40307100AE6FBE /* DetailViewController.swift in Sources */,
 				DCD5053F1E40307100AE6FBE /* MasterViewController.swift in Sources */,
 				DCC3A15B1E458ED90012733A /* WebService.swift in Sources */,
+				DCC3A15D1E46B9250012733A /* Error.swift in Sources */,
 				DCD5053D1E40307100AE6FBE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
