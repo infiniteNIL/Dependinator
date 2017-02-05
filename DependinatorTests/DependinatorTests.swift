@@ -45,6 +45,8 @@ class DependinatorSpecs: QuickSpec {
         }
 
         describe("loading") {
+            beforeEach { webServiceMock.getDateResult = .success(self.makeTestDate()) }
+
             it("loads the data") {
                 expect(sut.detailItem).toEventuallyNot(beNil())
             }
@@ -56,7 +58,23 @@ class DependinatorSpecs: QuickSpec {
             it("sets the label") {
                 expect(sut.detailDescriptionLabel.text).toEventuallyNot(beNil())
             }
+
+            it("sets the label to the right value") {
+                expect(sut.detailDescriptionLabel.text).toEventually(equal("2017-03-07 00:00:00 +0000"))
+            }
         }
+    }
+
+    func makeTestDate() -> Date {
+        var components = DateComponents()
+        components.year = 2017
+        components.month = 3
+        components.day = 7
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        components.timeZone = TimeZone(secondsFromGMT: 0)
+        return Calendar.current.date(from: components)!
     }
 
 }
@@ -64,10 +82,11 @@ class DependinatorSpecs: QuickSpec {
 class WebServiceMock: WebService {
 
     private(set) var getDateCalled = false
+    var getDateResult: Result<Date> = .success(Date())
 
     override func getDate(completionHandler: @escaping (Result<Date>) -> Void) {
         getDateCalled = true
-        completionHandler(.success(Date()))
+        completionHandler(getDateResult)
     }
 
 }
